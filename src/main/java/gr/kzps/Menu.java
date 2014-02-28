@@ -1,5 +1,7 @@
 package gr.kzps;
 
+import gr.kzps.util.Date;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Iterator;
@@ -7,17 +9,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
-	private Scanner scanner;
 	private static int NUM_OF_GAMES = 6;
 	private static int NUM_OF_METHODS = 3;
-
-	private void createRes() {
-		scanner = new Scanner(System.in);
-	}
-
-	private void closeRes() {
-		scanner.close();
-	}
+	private static Scanner scanner = null;
 
 	private String welcomeMessage() {
 		StringBuilder strBld = new StringBuilder();
@@ -67,6 +61,7 @@ public class Menu {
 	private int getInputNumber(int inputType) {
 		int inputNumber = -1;
 		try {
+			scanner = new Scanner(System.in);
 			inputNumber = scanner.nextInt();
 			if (inputType == 0) {
 				while ((inputNumber > NUM_OF_GAMES) || inputNumber < 0) {
@@ -81,19 +76,19 @@ public class Menu {
 			}
 		} catch (InputMismatchException e) {
 			System.out.println("You should have entered a number");
-			closeRes();
+			scanner.close();
 			System.exit(-1);
 		}
-
+		
 		return inputNumber;
 	}
-
+	
 	public static void main(String[] args) {
 		Menu menu = new Menu();
-		menu.createRes();
 		boolean RUNNING = true;
 		int gameChoice;
 		int methodChoice;
+		
 		System.out.print(menu.welcomeMessage());
 
 		while (RUNNING) {
@@ -101,14 +96,21 @@ public class Menu {
 			gameChoice = menu.getInputNumber(0);
 
 			if (gameChoice == 0) {
-				menu.closeRes();
+				scanner.close();
 				System.exit(0);
 			}
 
 			System.out.print(menu.gameMethods());
 			methodChoice = menu.getInputNumber(1);
+
+			if (methodChoice == 0) {
+				continue;
+			}
+
+			Selector selector = new Selector(gameChoice, methodChoice, scanner);
+			selector.select();
 		}
-		menu.closeRes();
-		System.exit(0);
+		// menu.closeRes();
+		// System.exit(0);
 	}
 }
