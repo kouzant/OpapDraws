@@ -24,7 +24,7 @@ public class Selector {
 		case 1:
 			// Kino
 			if (method == 1) {
-
+				
 			} else if (method == 2) {
 				Date date = util.getDate(scanner);
 			} else if (method == 3) {

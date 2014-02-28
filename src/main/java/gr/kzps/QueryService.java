@@ -13,56 +13,61 @@ public class QueryService {
 	private DrawQueriesServiceSEI implPort;
 	private GameDraw draw;
 	private List<GameDraw> draws;
+	private MessageWrapper messageWrapper;
 
 	public QueryService() {
 		service = new DrawQueriesServiceImplService();
 		implPort = service.getDrawQueriesServiceImplPort();
 	}
 
-	public GameDraw getGameDraw() {
-		return draw;
-	}
-	
-	public void setGameDraw(GameDraw draw) {
-		this.draw = draw;
-	}
-	
-	public GameDraw fetchKinoLatestDraw() {
+	public MessageWrapper fetchKinoLatestDraw(int gameId) {
 		draw = implPort.fetchKinoLatestDraw();
+		messageWrapper = new MessageWrapper();
+		messageWrapper.createMessageWrapper(draw, gameId);
 
-		return draw;
+		return messageWrapper;
 	}
 
-	public GameDraw fetchLottoLatestDraw() {
+	public MessageWrapper fetchLottoLatestDraw(int gameId) {
+		draw = implPort.fetchLottoLatestDraw();
+		messageWrapper = new MessageWrapper();
+		messageWrapper.createMessageWrapper(draw, gameId);
+
+		return messageWrapper;
+	}
+
+	public MessageWrapper fetchJokerLatestDraw(int gameId) {
 		draw = implPort.fetchJokerLatestDraw();
+		messageWrapper = new MessageWrapper();
+		messageWrapper.createMessageWrapper(draw, gameId);
 
-		return draw;
+		return messageWrapper;
 	}
 
-	public GameDraw fetchJokerLatestDraw() {
-		draw = implPort.fetchJokerLatestDraw();
-
-		return draw;
-	}
-
-	public GameDraw fetchProtoLatestDraw() {
+	public MessageWrapper fetchProtoLatestDraw(int gameId) {
 		draw = implPort.fetchProtoLatestDraw();
+		messageWrapper = new MessageWrapper();
+		messageWrapper.createMessageWrapper(draw, gameId);
 
-		return draw;
+		return messageWrapper;
 	}
 
-	public GameDraw fetchSuper3LatestDraw() {
+	public MessageWrapper fetchSuper3LatestDraw(int gameId) {
 		draw = implPort.fetchSuper3LatestDraw();
+		messageWrapper = new MessageWrapper();
+		messageWrapper.createMessageWrapper(draw, gameId);
 
-		return draw;
+		return messageWrapper;
 	}
 
-	public GameDraw fetchExtra5LatestDraw() {
+	public MessageWrapper fetchExtra5LatestDraw(int gameId) {
 		draw = implPort.fetchExtra5LatestDraw();
+		messageWrapper = new MessageWrapper();
+		messageWrapper.createMessageWrapper(draw, gameId);
 
-		return draw;
+		return messageWrapper;
 	}
-	
+
 	@SuppressWarnings("unused")
 	private GameDraw fetchPropoGoalLatestDraw() {
 		draw = implPort.fetchPropoGoalLatestDraw();
@@ -90,76 +95,102 @@ public class QueryService {
 
 		return draw;
 	}
-	
-	public List<GameDraw> fetchKinoByDate(XMLGregorianCalendar date) {
+
+	public MessageWrapper fetchKinoByDate(XMLGregorianCalendar date, int gameId) {
 		draws = implPort.fetchKinoDrawsByDate(date);
-		
-		return draws;
+		messageWrapper = new MessageWrapper();
+		messageWrapper.createMessageWrapper(draws, gameId);
+
+		return messageWrapper;
 	}
-	
-	public List<GameDraw> fetchLottoByDate(XMLGregorianCalendar date) {
+
+	public MessageWrapper fetchLottoByDate(XMLGregorianCalendar date, int gameId) {
 		draws = implPort.fetchLottoDrawsByDate(date);
+		messageWrapper = new MessageWrapper();
+		messageWrapper.createMessageWrapper(draws, gameId);
 
-		return draws;
+		return messageWrapper;
 	}
-	
-	public List<GameDraw> fetchJokerByDate(XMLGregorianCalendar date) {
+
+	public MessageWrapper fetchJokerByDate(XMLGregorianCalendar date, int gameId) {
 		draws = implPort.fetchJokerDrawsByDate(date);
-				
-		return draws;
-	}
-	
-	public List<GameDraw> fetchProtoByDate(XMLGregorianCalendar date) {
-		draws = implPort.fetchProtoDrawsByDate(date);
-				
-		return draws;
-	}
-	
-	public List<GameDraw> fetchSuper3ByDate(XMLGregorianCalendar date) {
-		draws = implPort.fetchSuper3DrawsByDate(date);
-				
-		return draws;
-	}
-	
-	public List<GameDraw> fetchExtra5ByDate(XMLGregorianCalendar date) {
-		draws = implPort.fetchExtra5DrawsByDate(date);
-				
-		return draws;
-	}
-	
-	public GameDraw fetchKinoByNumber(Long drawNumber) {
-		draw = implPort.fetchKinoDrawByNumber(drawNumber);
-		
-		return draw;
-	}
-	
-	public GameDraw fetchLottoByNumber(Long drawNumber) {
-		draw = implPort.fetchLottoDrawByNumber(drawNumber);
-				
-		return draw;
-	}
-	
-	public GameDraw fetchJokerByNumber(Long drawNumber) {
-		draw = implPort.fetchJokerDrawByNumber(drawNumber);
+		messageWrapper = new MessageWrapper();
+		messageWrapper.createMessageWrapper(draws, gameId);
 
-		return draw;
+		return messageWrapper;
 	}
-	
-	public GameDraw fetchProtoByNumber(Long drawNumber) {
+
+	public MessageWrapper fetchProtoByDate(XMLGregorianCalendar date, int gameId) {
+		draws = implPort.fetchProtoDrawsByDate(date);
+		messageWrapper = new MessageWrapper();
+		messageWrapper.createMessageWrapper(draws, gameId);
+
+		return messageWrapper;
+	}
+
+	public MessageWrapper fetchSuper3ByDate(XMLGregorianCalendar date,
+			int gameId) {
+		draws = implPort.fetchSuper3DrawsByDate(date);
+		messageWrapper = new MessageWrapper();
+		messageWrapper.createMessageWrapper(draws, gameId);
+
+		return messageWrapper;
+	}
+
+	public MessageWrapper fetchExtra5ByDate(XMLGregorianCalendar date,
+			int gameId) {
+		draws = implPort.fetchExtra5DrawsByDate(date);
+		messageWrapper = new MessageWrapper();
+		messageWrapper.createMessageWrapper(draws, gameId);
+
+		return messageWrapper;
+	}
+
+	public MessageWrapper fetchKinoByNumber(Long drawNumber, int gameId) {
+		draw = implPort.fetchKinoDrawByNumber(drawNumber);
+		messageWrapper = new MessageWrapper();
+		messageWrapper.createMessageWrapper(draw, gameId);
+
+		return messageWrapper;
+	}
+
+	public MessageWrapper fetchLottoByNumber(Long drawNumber, int gameId) {
+		draw = implPort.fetchLottoDrawByNumber(drawNumber);
+		messageWrapper = new MessageWrapper();
+		messageWrapper.createMessageWrapper(draw, gameId);
+
+		return messageWrapper;
+	}
+
+	public MessageWrapper fetchJokerByNumber(Long drawNumber, int gameId) {
+		draw = implPort.fetchJokerDrawByNumber(drawNumber);
+		messageWrapper = new MessageWrapper();
+		messageWrapper.createMessageWrapper(draw, gameId);
+
+		return messageWrapper;
+	}
+
+	public MessageWrapper fetchProtoByNumber(Long drawNumber, int gameId) {
 		draw = implPort.fetchProtoDrawByNumber(drawNumber);
-				
-		return draw;
+		messageWrapper = new MessageWrapper();
+		messageWrapper.createMessageWrapper(draw, gameId);
+
+		return messageWrapper;
 	}
-	
-	public GameDraw fetchSuper3ByNumber(Long drawNumber) {
+
+	public MessageWrapper fetchSuper3ByNumber(Long drawNumber, int gameId) {
 		draw = implPort.fetchSuper3DrawByNumber(drawNumber);
-				
-		return draw;
+		messageWrapper = new MessageWrapper();
+		messageWrapper.createMessageWrapper(draw, gameId);
+
+		return messageWrapper;
 	}
-	
-	public GameDraw fetchExtra5ByNumber(Long drawNumber) {
+
+	public MessageWrapper fetchExtra5ByNumber(Long drawNumber, int gameId) {
 		draw = implPort.fetchExtra5DrawByNumber(drawNumber);
-				
-		return draw;
+		messageWrapper = new MessageWrapper();
+		messageWrapper.createMessageWrapper(draw, gameId);
+
+		return messageWrapper;
 	}
 }
