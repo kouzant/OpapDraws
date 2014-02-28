@@ -99,7 +99,7 @@ public class QueryService {
 	
 	public List<GameDraw> fetchLottoByDate(XMLGregorianCalendar date) {
 		draws = implPort.fetchLottoDrawsByDate(date);
-				
+
 		return draws;
 	}
 	
