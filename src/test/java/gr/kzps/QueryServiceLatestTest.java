@@ -43,25 +43,4 @@ public class QueryServiceLatestTest {
 	public void testFetchExtra5LatestDraw() {
 		assertNotNull("Draw: ", qService.fetchExtra5LatestDraw());
 	}
-
-	@Test
-	public void testFetchPropoGoalLatestDraw() {
-		assertNotNull("Draw: ", qService.fetchPropoGoalLatestDraw());
-	}
-
-	@Test
-	public void testFetchPowerSpinLatestDraw() {
-		assertNotNull("Draw: ", qService.fetchPowerSpinLatestDraw());
-	}
-
-	@Test
-	public void testFetchBowlingLatestDraw() {
-		assertNotNull("Draw: ", qService.fetchBowlingLatestDraw());
-	}
-
-	@Test
-	public void testFetchPenaltiesLatestDraw() {
-		assertNotNull("Draw: ", qService.fetchPenaltiesLatestDraw());
-	}
-
 }

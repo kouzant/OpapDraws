@@ -1,5 +1,9 @@
 package gr.kzps;
 
+import java.util.List;
+
+import javax.xml.datatype.XMLGregorianCalendar;
+
 import gr.opap.draws.ws.query.DrawQueriesServiceImplService;
 import gr.opap.draws.ws.query.DrawQueriesServiceSEI;
 import gr.opap.draws.ws.query.GameDraw;
@@ -8,6 +12,7 @@ public class QueryService {
 	private DrawQueriesServiceImplService service;
 	private DrawQueriesServiceSEI implPort;
 	private GameDraw draw;
+	private List<GameDraw> draws;
 
 	public QueryService() {
 		service = new DrawQueriesServiceImplService();
@@ -57,28 +62,68 @@ public class QueryService {
 
 		return draw;
 	}
-
-	public GameDraw fetchPropoGoalLatestDraw() {
+	
+	@SuppressWarnings("unused")
+	private GameDraw fetchPropoGoalLatestDraw() {
 		draw = implPort.fetchPropoGoalLatestDraw();
 
 		return draw;
 	}
 
-	public GameDraw fetchPowerSpinLatestDraw() {
+	@SuppressWarnings("unused")
+	private GameDraw fetchPowerSpinLatestDraw() {
 		draw = implPort.fetchPowerSpinLatestDraw();
 
 		return draw;
 	}
 
-	public GameDraw fetchBowlingLatestDraw() {
+	@SuppressWarnings("unused")
+	private GameDraw fetchBowlingLatestDraw() {
 		draw = implPort.fetchBowlingLatestDraw();
 
 		return draw;
 	}
 
-	public GameDraw fetchPenaltiesLatestDraw() {
+	@SuppressWarnings("unused")
+	private GameDraw fetchPenaltiesLatestDraw() {
 		draw = implPort.fetchPenaltiesLatestDraw();
 
 		return draw;
+	}
+	
+	public List<GameDraw> fetchKinoByDate(XMLGregorianCalendar date) {
+		draws = implPort.fetchKinoDrawsByDate(date);
+		
+		return draws;
+	}
+	
+	public List<GameDraw> fetchLottoByDate(XMLGregorianCalendar date) {
+		draws = implPort.fetchLottoDrawsByDate(date);
+				
+		return draws;
+	}
+	
+	public List<GameDraw> fetchJokerByDate(XMLGregorianCalendar date) {
+		draws = implPort.fetchJokerDrawsByDate(date);
+				
+		return draws;
+	}
+	
+	public List<GameDraw> fetchProtoByDate(XMLGregorianCalendar date) {
+		draws = implPort.fetchProtoDrawsByDate(date);
+				
+		return draws;
+	}
+	
+	public List<GameDraw> fetchSuper3ByDate(XMLGregorianCalendar date) {
+		draws = implPort.fetchSuper3DrawsByDate(date);
+				
+		return draws;
+	}
+	
+	public List<GameDraw> fetchExtra5ByDate(XMLGregorianCalendar date) {
+		draws = implPort.fetchExtra5DrawsByDate(date);
+				
+		return draws;
 	}
 }
