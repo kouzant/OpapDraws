@@ -126,4 +126,40 @@ public class QueryService {
 				
 		return draws;
 	}
+	
+	public GameDraw fetchKinoByNumber(Long drawNumber) {
+		draw = implPort.fetchKinoDrawByNumber(drawNumber);
+		
+		return draw;
+	}
+	
+	public GameDraw fetchLottoByNumber(Long drawNumber) {
+		draw = implPort.fetchLottoDrawByNumber(drawNumber);
+				
+		return draw;
+	}
+	
+	public GameDraw fetchJokerByNumber(Long drawNumber) {
+		draw = implPort.fetchJokerDrawByNumber(drawNumber);
+
+		return draw;
+	}
+	
+	public GameDraw fetchProtoByNumber(Long drawNumber) {
+		draw = implPort.fetchProtoDrawByNumber(drawNumber);
+				
+		return draw;
+	}
+	
+	public GameDraw fetchSuper3ByNumber(Long drawNumber) {
+		draw = implPort.fetchSuper3DrawByNumber(drawNumber);
+				
+		return draw;
+	}
+	
+	public GameDraw fetchExtra5ByNumber(Long drawNumber) {
+		draw = implPort.fetchExtra5DrawByNumber(drawNumber);
+				
+		return draw;
+	}
 }

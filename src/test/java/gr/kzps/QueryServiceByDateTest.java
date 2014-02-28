@@ -20,6 +20,7 @@ public class QueryServiceByDateTest extends QueryService {
 		qService = new QueryService();
 
 		GregorianCalendar gCal = new GregorianCalendar(2014, 1, 26);
+		System.out.println(gCal.getTime().toString());
 		xmlGCal = DatatypeFactory.newInstance().newXMLGregorianCalendar(gCal);
 	}
 

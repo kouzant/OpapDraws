@@ -5,7 +5,8 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ QueryServiceByDateTest.class, QueryServiceLatestTest.class })
+@SuiteClasses({ QueryServiceByDateTest.class, QueryServiceLatestTest.class,
+		QueryServiceDrawNumTest.class })
 public class QueryServiceTest {
 
 }
