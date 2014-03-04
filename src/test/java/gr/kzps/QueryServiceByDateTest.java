@@ -14,7 +14,7 @@ public class QueryServiceByDateTest extends QueryService {
 
 	private static QueryService qService;
 	private static XMLGregorianCalendar xmlGCal;
-	private static int gameId = 1;
+	private static String gameId = "KINO";
 	private static MessageWrapper mswr;
 
 	@BeforeClass

@@ -9,7 +9,7 @@ public class QueryServiceDrawNumTest extends QueryService {
 
 	private static QueryService qService;
 	private final long DRAWNUM = 1474L;
-	private static int gameId = 1;
+	private static String gameId = "KINO";
 	private static MessageWrapper mswr;
 	
 	@BeforeClass

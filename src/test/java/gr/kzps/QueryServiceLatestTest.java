@@ -9,7 +9,7 @@ import org.junit.Test;
 
 public class QueryServiceLatestTest {
 	private static QueryService qService;
-	private static int gameId = 1;
+	private static String gameId = "KINO";
 	private static MessageWrapper mswr;
 	
 	@BeforeClass

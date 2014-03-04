@@ -6,18 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MessageWrapper {
-	private int gameId;
+	private String gameId;
 	private List<GameDraw> gameDraws;
 
 	public MessageWrapper() {
 		super();
 	}
 
-	public int getGameId() {
+	public String getGameId() {
 		return gameId;
 	}
 
-	public void setGameId(int gameId) {
+	public void setGameId(String gameId) {
 		this.gameId = gameId;
 	}
 
@@ -29,7 +29,7 @@ public class MessageWrapper {
 		this.gameDraws = gameDraws;
 	}
 
-	public MessageWrapper createMessageWrapper(GameDraw gameDraw, int gameId) {
+	public MessageWrapper createMessageWrapper(GameDraw gameDraw, String gameId) {
 		MessageWrapper messageWrapper = new MessageWrapper();
 		gameDraws = new ArrayList<GameDraw>();
 		this.gameId = gameId;
@@ -40,7 +40,7 @@ public class MessageWrapper {
 	}
 
 	public MessageWrapper createMessageWrapper(List<GameDraw> gameDraws,
-			int gameId) {
+			String gameId) {
 		MessageWrapper messageWrapper = new MessageWrapper();
 		this.gameId = gameId;
 		this.gameDraws = gameDraws;
