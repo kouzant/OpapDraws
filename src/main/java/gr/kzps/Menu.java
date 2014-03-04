@@ -1,6 +1,6 @@
 package gr.kzps;
 
-import gr.kzps.util.Date;
+import gr.kzps.util.Constants;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -9,8 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
-	private static int NUM_OF_GAMES = 6;
-	private static int NUM_OF_METHODS = 3;
+	
 	private static Scanner scanner = null;
 
 	private String welcomeMessage() {
@@ -26,12 +25,12 @@ public class Menu {
 		StringBuilder strBld = new StringBuilder();
 		List<String> games = new ArrayList<>();
 		int index = 1;
-		games.add("Kino");
-		games.add("Lotto");
-		games.add("Joker");
-		games.add("Proto");
-		games.add("Super 3");
-		games.add("Extra 5");
+		games.add(Constants.KINNO);
+		games.add(Constants.LOTTO);
+		games.add(Constants.JOKER);
+		games.add(Constants.PROTO);
+		games.add(Constants.SUPER3);
+		games.add(Constants.EXTRA5);
 
 		Iterator<String> gamesIt = games.iterator();
 
@@ -64,12 +63,12 @@ public class Menu {
 			scanner = new Scanner(System.in);
 			inputNumber = scanner.nextInt();
 			if (inputType == 0) {
-				while ((inputNumber > NUM_OF_GAMES) || inputNumber < 0) {
+				while ((inputNumber > Constants.NUM_OF_GAMES) || inputNumber < 0) {
 					inputNumber = scanner.nextInt();
 					System.out.println("Type a valid choice");
 				}
 			} else if (inputType == 1) {
-				while ((inputNumber > NUM_OF_METHODS) || inputNumber < 0) {
+				while ((inputNumber > Constants.NUM_OF_METHODS) || inputNumber < 0) {
 					inputNumber = scanner.nextInt();
 					System.out.println("Type a valid choice");
 				}
