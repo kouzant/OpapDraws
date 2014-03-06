@@ -43,7 +43,7 @@ public class Selector {
 				messageWrapper = qService.fetchLottoLatestDraw(Constants.LOTTO);
 			} else if (method == 2) {
 				XMLGregorianCalendar xmlGrCal = util.getDate(scanner);
-				messageWrapper = qService.fetchKinoByDate(xmlGrCal, Constants.LOTTO);
+				messageWrapper = qService.fetchLottoByDate(xmlGrCal, Constants.LOTTO);
 			} else if (method == 3) {
 				Long compNum = util.getCompNum(scanner);
 				messageWrapper = qService.fetchLottoByNumber(compNum, Constants.LOTTO);
@@ -99,6 +99,6 @@ public class Selector {
 			break;
 		}
 		
-		System.out.print(util.Printer(messageWrapper));
+		util.Printer(messageWrapper);
 	}
 }

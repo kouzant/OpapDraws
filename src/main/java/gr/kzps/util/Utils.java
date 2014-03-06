@@ -5,6 +5,7 @@ import gr.opap.draws.ws.query.GameDraw;
 
 import java.util.GregorianCalendar;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 
 import javax.xml.datatype.DatatypeConfigurationException;
@@ -13,12 +14,12 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 public class Utils {
 	Scanner scanner;
-	StringBuilder strBld;
+	StringBuilder sb;
 
 	public XMLGregorianCalendar getDate(Scanner scanner) {
-		strBld = new StringBuilder();
-		strBld.append("Type the desired date DD/MM/YYYY").append("\n");
-		System.out.print(strBld.toString());
+		sb = new StringBuilder();
+		sb.append("Type the desired date DD/MM/YYYY").append("\n");
+		System.out.print(sb.toString());
 
 		String sDate = scanner.next();
 		String[] splitDate = sDate.split("[/]");
@@ -35,14 +36,15 @@ public class Utils {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("Date: " + xmlGrCal.toGregorianCalendar().getTime().toString());
+		System.out.println("Date: "
+				+ xmlGrCal.toGregorianCalendar().getTime().toString());
 		return xmlGrCal;
 	}
 
 	public Long getCompNum(Scanner scanner) {
-		strBld = new StringBuilder();
-		strBld.append("Type the desired competition number").append("\n");
-		System.out.print(strBld.toString());
+		sb = new StringBuilder();
+		sb.append("Type the desired competition number").append("\n");
+		System.out.print(sb.toString());
 
 		Long compNum = scanner.nextLong();
 
@@ -50,30 +52,46 @@ public class Utils {
 	}
 
 	private String printDashes(int length) {
+		sb = new StringBuilder();
 		for (int i = 0; i < length + 2; i++)
-			strBld.append("-");
-		strBld.append("\n");
+			sb.append("-");
 
-		return strBld.toString();
+		return sb.toString();
 	}
 
-	public String Printer(MessageWrapper messageWrapper) {
+	private String formatNumber(List<Long> numArr, String game) {
+		Iterator<Long> numArrIt = numArr.iterator();
+		sb = new StringBuilder();
+		sb.append("|");
+		if (Constants.LOTTO.equals(game) || Constants.JOKER.equals(game)) {
+			for (int i = 0; i < (numArr.size() - 1); i++){
+				sb.append(" ").append(numArr.get(i));
+			}
+			sb.append(" + ").append(numArr.get(numArr.size() - 1));
+		} else {
+			while (numArrIt.hasNext()) {
+				sb.append(" ").append(numArrIt.next());
+			}
+		}
+		sb.append(" |");
+
+		return sb.toString();
+	}
+
+	public void Printer(MessageWrapper messageWrapper) {
 		if (messageWrapper == null) {
 			System.err.println("Something wrong happened!");
 			System.exit(-2);
 		}
 		Integer zero = new Integer(0);
-		strBld = new StringBuilder();
-		strBld.append(printDashes(messageWrapper.getGameId().length()));
-		strBld.append("|").append(messageWrapper.getGameId()).append("|")
-				.append("\n");
-		strBld.append(printDashes(messageWrapper.getGameId().length()));
-		strBld.append("\n").append("\n");
+		System.out.println(printDashes(messageWrapper.getGameId().length()));
+		System.out.println("|" + messageWrapper.getGameId() + "|");
+		System.out.println(printDashes(messageWrapper.getGameId().length()));
+		System.out.println();
 
 		if (zero.compareTo(messageWrapper.getGameDraws().size()) == 0
 				|| null == messageWrapper.getGameDraws()) {
-			strBld.append("Wrong competition number or no draws that day")
-					.append("\n");
+			System.out.println("Wrong competition number or no draws that day");
 		} else {
 			Iterator<GameDraw> gDrawIt = messageWrapper.getGameDraws()
 					.iterator();
@@ -82,14 +100,15 @@ public class Utils {
 				gDraw = gDrawIt.next();
 				String date = gDraw.getDrawTime().toGregorianCalendar()
 						.getTime().toString();
-				strBld.append("Date: ").append(date).append("\n");
-				strBld.append("Competition number: ").append(gDraw.getDrawId())
-						.append("\n");
-				strBld.append("Draw: ").append(gDraw.getNumArr().toString())
-						.append("\n").append("\n");
+				System.out.println("Date: " + date);
+				System.out.println("Competition number: " + gDraw.getDrawId());
+				System.out.println("Draw:");
+				String numbers = formatNumber(gDraw.getNumArr(),
+						messageWrapper.getGameId());
+				System.out.println(printDashes(numbers.length() - 2));
+				System.out.println(numbers);
+				System.out.println(printDashes(numbers.length() - 2));
 			}
 		}
-
-		return strBld.toString();
 	}
 }
