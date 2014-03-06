@@ -13,7 +13,6 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 public class Utils {
-	Scanner scanner;
 	StringBuilder sb;
 
 	public XMLGregorianCalendar getDate(Scanner scanner) {

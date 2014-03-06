@@ -11,18 +11,19 @@ import java.util.Scanner;
 public class Menu {
 
 	private static Scanner scanner = null;
+	private static StringBuilder sb = null;
 
 	private String welcomeMessage() {
-		StringBuilder strBld = new StringBuilder();
-		strBld.append("Welcome to OPAP draws client").append("\n");
-		strBld.append("----------------------------").append("\n");
-		strBld.append("Make your choice").append("\n");
+		sb = new StringBuilder();
+		sb.append("Welcome to OPAP draws client").append("\n");
+		sb.append("----------------------------").append("\n");
+		sb.append("Make your choice").append("\n");
 
-		return strBld.toString();
+		return sb.toString();
 	}
 
 	private String mainMenu() {
-		StringBuilder strBld = new StringBuilder();
+		sb = new StringBuilder();
 		List<String> games = new ArrayList<>();
 		int index = 1;
 		games.add(Constants.KINNO);
@@ -35,24 +36,24 @@ public class Menu {
 		Iterator<String> gamesIt = games.iterator();
 
 		while (gamesIt.hasNext()) {
-			strBld.append(index).append("-").append(gamesIt.next())
+			sb.append(index).append("-").append(gamesIt.next())
 					.append("\n");
 			index++;
 		}
-		strBld.append("0-Exit").append("\n");
+		sb.append("0-Exit").append("\n");
 		index = 1;
 
-		return strBld.toString();
+		return sb.toString();
 	}
 
 	private String gameMethods() {
-		StringBuilder strBld = new StringBuilder();
-		strBld.append("1-Latest draw").append("\n");
-		strBld.append("2-Draws for the given date").append("\n");
-		strBld.append("3-Draw for a specific competition number").append("\n");
-		strBld.append("0-Back to main menu").append("\n");
+		sb = new StringBuilder();
+		sb.append("1-Latest draw").append("\n");
+		sb.append("2-Draws for the given date").append("\n");
+		sb.append("3-Draw for a specific competition number").append("\n");
+		sb.append("0-Back to main menu").append("\n");
 
-		return strBld.toString();
+		return sb.toString();
 	}
 
 	// inputType 0 is for game choice
@@ -111,7 +112,5 @@ public class Menu {
 			Selector selector = new Selector(gameChoice, methodChoice, scanner);
 			selector.select();
 		}
-		// menu.closeRes();
-		// System.exit(0);
 	}
 }
