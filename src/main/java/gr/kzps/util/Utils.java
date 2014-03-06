@@ -63,12 +63,14 @@ public class Utils {
 		Iterator<Long> numArrIt = numArr.iterator();
 		sb = new StringBuilder();
 		sb.append("|");
+		//Last node of the list is the special one
 		if (Constants.LOTTO.equals(game) || Constants.JOKER.equals(game)) {
 			for (int i = 0; i < (numArr.size() - 1); i++){
 				sb.append(" ").append(numArr.get(i));
 			}
 			sb.append(" + ").append(numArr.get(numArr.size() - 1));
 		} else {
+			//No special number here
 			while (numArrIt.hasNext()) {
 				sb.append(" ").append(numArrIt.next());
 			}

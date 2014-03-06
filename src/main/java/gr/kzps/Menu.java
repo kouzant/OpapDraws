@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
-	
+
 	private static Scanner scanner = null;
 
 	private String welcomeMessage() {
@@ -63,12 +63,14 @@ public class Menu {
 			scanner = new Scanner(System.in);
 			inputNumber = scanner.nextInt();
 			if (inputType == 0) {
-				while ((inputNumber > Constants.NUM_OF_GAMES) || inputNumber < 0) {
+				while ((inputNumber > Constants.NUM_OF_GAMES)
+						|| inputNumber < 0) {
 					inputNumber = scanner.nextInt();
 					System.out.println("Type a valid choice");
 				}
 			} else if (inputType == 1) {
-				while ((inputNumber > Constants.NUM_OF_METHODS) || inputNumber < 0) {
+				while ((inputNumber > Constants.NUM_OF_METHODS)
+						|| inputNumber < 0) {
 					inputNumber = scanner.nextInt();
 					System.out.println("Type a valid choice");
 				}
@@ -78,16 +80,16 @@ public class Menu {
 			scanner.close();
 			System.exit(-1);
 		}
-		
+
 		return inputNumber;
 	}
-	
+
 	public static void main(String[] args) {
 		Menu menu = new Menu();
 		boolean RUNNING = true;
 		int gameChoice;
 		int methodChoice;
-		
+
 		System.out.print(menu.welcomeMessage());
 
 		while (RUNNING) {

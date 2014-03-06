@@ -104,7 +104,8 @@ public class QueryService {
 		return messageWrapper;
 	}
 
-	public MessageWrapper fetchLottoByDate(XMLGregorianCalendar date, String game) {
+	public MessageWrapper fetchLottoByDate(XMLGregorianCalendar date,
+			String game) {
 		draws = implPort.fetchLottoDrawsByDate(date);
 		messageWrapper = new MessageWrapper();
 		messageWrapper.createMessageWrapper(draws, game);
@@ -112,7 +113,8 @@ public class QueryService {
 		return messageWrapper;
 	}
 
-	public MessageWrapper fetchJokerByDate(XMLGregorianCalendar date, String game) {
+	public MessageWrapper fetchJokerByDate(XMLGregorianCalendar date,
+			String game) {
 		draws = implPort.fetchJokerDrawsByDate(date);
 		messageWrapper = new MessageWrapper();
 		messageWrapper.createMessageWrapper(draws, game);
@@ -120,7 +122,8 @@ public class QueryService {
 		return messageWrapper;
 	}
 
-	public MessageWrapper fetchProtoByDate(XMLGregorianCalendar date, String game) {
+	public MessageWrapper fetchProtoByDate(XMLGregorianCalendar date,
+			String game) {
 		draws = implPort.fetchProtoDrawsByDate(date);
 		messageWrapper = new MessageWrapper();
 		messageWrapper.createMessageWrapper(draws, game);
