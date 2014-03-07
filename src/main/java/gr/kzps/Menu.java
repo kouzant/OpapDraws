@@ -8,11 +8,24 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Entry point of the program. Class that implements the main menu.
+ * @author Antonis Kouzoupis
+ */
 public class Menu {
 
+	/**
+	 * Scanner should be closed only once, otherwise System.in is closed too.
+	 * @see java.util.Scanner
+	 */
 	private static Scanner scanner = null;
 	private static StringBuilder sb = null;
 
+	/**
+	 * Prints the welcome message.
+	 * @return The welcome message
+	 * @see StringBuilder
+	 */
 	private String welcomeMessage() {
 		sb = new StringBuilder();
 		sb.append("Welcome to OPAP draws client").append("\n");
@@ -22,6 +35,14 @@ public class Menu {
 		return sb.toString();
 	}
 
+	/**
+	 * Prints the available game options
+	 * @return The available game options
+	 * @see StringBuilder
+	 * @see List
+	 * @see ArrayList
+	 * @see Iterator
+	 */
 	private String mainMenu() {
 		sb = new StringBuilder();
 		List<String> games = new ArrayList<>();
@@ -46,6 +67,11 @@ public class Menu {
 		return sb.toString();
 	}
 
+	/**
+	 * Prints the available draw methods
+	 * @return The available draw methods
+	 * @see StringBuilder
+	 */
 	private String gameMethods() {
 		sb = new StringBuilder();
 		sb.append("1-Latest draw").append("\n");
@@ -56,8 +82,14 @@ public class Menu {
 		return sb.toString();
 	}
 
-	// inputType 0 is for game choice
-	// inputType 1 is for method choice
+	/**
+	 * Reads user's input for the main menu and validates it
+	 * @param inputType 0 is for game choice and 1 is for method choice
+	 * @return User's input
+	 * @see Scanner
+	 * @exception InputMismatchException
+	 * @see Constants
+	 */
 	private int getInputNumber(int inputType) {
 		int inputNumber = -1;
 		try {
@@ -85,6 +117,16 @@ public class Menu {
 		return inputNumber;
 	}
 
+	/**
+	 * Prints main menu, user choose between games and different draw methods
+	 * @param args
+	 * @see Menu#welcomeMessage()
+	 * @see Menu#mainMenu()
+	 * @see Menu#getInputNumber(int)
+	 * @see Menu#gameMethods()
+	 * @see Selector
+	 * @see Selector#select()
+	 */
 	public static void main(String[] args) {
 		Menu menu = new Menu();
 		boolean RUNNING = true;
