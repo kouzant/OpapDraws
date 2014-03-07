@@ -5,11 +5,15 @@ import static org.junit.Assert.*;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+/**
+ * Test case for fetch draw by specific draw number.
+ * @author Antonis Kouzoupis
+ *
+ */
 public class QueryServiceDrawNumTest extends QueryService {
 
 	private static QueryService qService;
 	private final long DRAWNUM = 1474L;
-	private static String gameId = "KINO";
 	private static MessageWrapper mswr;
 	
 	@BeforeClass
@@ -19,7 +23,7 @@ public class QueryServiceDrawNumTest extends QueryService {
 
 	@Test
 	public void testFetchKinoByNumber() {
-		mswr = qService.fetchKinoByNumber(DRAWNUM, gameId);
+		mswr = qService.fetchKinoByNumber(DRAWNUM);
 		assertNotNull("Draw by Number", mswr);
 		assertEquals(1, mswr.getGameDraws().size());
 		assertNotNull(mswr.getGameDraws().get(0).getNumArr());
@@ -28,7 +32,7 @@ public class QueryServiceDrawNumTest extends QueryService {
 
 	@Test
 	public void testFetchLottoByNumber() {
-		mswr = qService.fetchLottoByNumber(DRAWNUM, gameId);
+		mswr = qService.fetchLottoByNumber(DRAWNUM);
 		assertNotNull("Draw by Number", mswr);
 		assertEquals(1, mswr.getGameDraws().size());
 		assertNotNull(mswr.getGameDraws().get(0).getNumArr());
@@ -37,7 +41,7 @@ public class QueryServiceDrawNumTest extends QueryService {
 
 	@Test
 	public void testFetchJokerByNumber() {
-		mswr = qService.fetchJokerByNumber(DRAWNUM, gameId);
+		mswr = qService.fetchJokerByNumber(DRAWNUM);
 		assertNotNull("Draw by Number", mswr);
 		assertEquals(1, mswr.getGameDraws().size());
 		assertNotNull(mswr.getGameDraws().get(0).getNumArr());
@@ -46,7 +50,7 @@ public class QueryServiceDrawNumTest extends QueryService {
 
 	@Test
 	public void testFetchProtoByNumber() {
-		mswr = qService.fetchProtoByNumber(DRAWNUM, gameId);
+		mswr = qService.fetchProtoByNumber(DRAWNUM);
 		assertNotNull("Draw by Number", mswr);
 		assertEquals(1, mswr.getGameDraws().size());
 		assertNotNull(mswr.getGameDraws().get(0).getNumArr());
@@ -55,7 +59,7 @@ public class QueryServiceDrawNumTest extends QueryService {
 
 	@Test
 	public void testFetchSuper3ByNumber() {
-		mswr = qService.fetchSuper3ByNumber(DRAWNUM, gameId);
+		mswr = qService.fetchSuper3ByNumber(DRAWNUM);
 		assertNotNull("Draw by Number", mswr);
 		assertEquals(1, mswr.getGameDraws().size());
 		assertNotNull(mswr.getGameDraws().get(0).getNumArr());
@@ -64,7 +68,7 @@ public class QueryServiceDrawNumTest extends QueryService {
 
 	@Test
 	public void testFetchExtra5ByNumber() {
-		mswr = qService.fetchExtra5ByNumber(DRAWNUM, gameId);
+		mswr = qService.fetchExtra5ByNumber(DRAWNUM);
 		assertNotNull("Draw by Number", mswr);
 		assertEquals(1, mswr.getGameDraws().size());
 		assertNotNull(mswr.getGameDraws().get(0).getNumArr());

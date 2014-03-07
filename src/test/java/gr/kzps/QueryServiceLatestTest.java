@@ -7,9 +7,13 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+/**
+ * Test case for fetch latest draw.
+ * @author Antonis Kouzoupis
+ *
+ */
 public class QueryServiceLatestTest {
 	private static QueryService qService;
-	private static String gameId = "KINO";
 	private static MessageWrapper mswr;
 	
 	@BeforeClass
@@ -19,7 +23,7 @@ public class QueryServiceLatestTest {
 
 	@Test
 	public void testFetchKinoLatestDraw() {
-		mswr = qService.fetchKinoLatestDraw(gameId);
+		mswr = qService.fetchKinoLatestDraw();
 		assertNotNull("Draw: ", mswr);
 		assertEquals(1, mswr.getGameDraws().size());
 		assertNotNull(mswr.getGameDraws().get(0).getNumArr());
@@ -28,7 +32,7 @@ public class QueryServiceLatestTest {
 
 	@Test
 	public void testFetchLottoLatestDraw() {
-		mswr = qService.fetchLottoLatestDraw(gameId);
+		mswr = qService.fetchLottoLatestDraw();
 		assertNotNull("Draw: ", mswr);
 		assertEquals(1, mswr.getGameDraws().size());
 		assertNotNull(mswr.getGameDraws().get(0).getNumArr());
@@ -37,7 +41,7 @@ public class QueryServiceLatestTest {
 
 	@Test
 	public void testFetchJokerLatestDraw() {
-		mswr = qService.fetchJokerLatestDraw(gameId);
+		mswr = qService.fetchJokerLatestDraw();
 		assertNotNull("Draw: ", mswr);
 		assertEquals(1, mswr.getGameDraws().size());
 		assertNotNull(mswr.getGameDraws().get(0).getNumArr());
@@ -46,7 +50,7 @@ public class QueryServiceLatestTest {
 
 	@Test
 	public void testFetchProtoLatestDraw() {
-		mswr = qService.fetchProtoLatestDraw(gameId);
+		mswr = qService.fetchProtoLatestDraw();
 		assertNotNull("Draw: ", mswr);
 		assertEquals(1, mswr.getGameDraws().size());
 		assertNotNull(mswr.getGameDraws().get(0).getNumArr());
@@ -55,7 +59,7 @@ public class QueryServiceLatestTest {
 
 	@Test
 	public void testFetchSuper3LatestDraw() {
-		mswr = qService.fetchSuper3LatestDraw(gameId);
+		mswr = qService.fetchSuper3LatestDraw();
 		assertNotNull("Draw: ", mswr);
 		assertEquals(1, mswr.getGameDraws().size());
 		assertNotNull(mswr.getGameDraws().get(0).getNumArr());
@@ -64,7 +68,7 @@ public class QueryServiceLatestTest {
 
 	@Test
 	public void testFetchExtra5LatestDraw() {
-		mswr = qService.fetchExtra5LatestDraw(gameId);
+		mswr = qService.fetchExtra5LatestDraw();
 		assertNotNull("Draw: ", mswr);
 		assertEquals(1, mswr.getGameDraws().size());
 		assertNotNull(mswr.getGameDraws().get(0).getNumArr());

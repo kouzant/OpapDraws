@@ -12,11 +12,15 @@ import javax.xml.datatype.XMLGregorianCalendar;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+/**
+ * Test case for fetch draw for a specific date
+ * @author Antonis Kouzoupis
+ *
+ */
 public class QueryServiceByDateTest extends QueryService {
 
 	private static QueryService qService;
 	private static XMLGregorianCalendar xmlGCal;
-	private static String gameId = "KINO";
 	private static MessageWrapper mswr;
 
 	@BeforeClass
@@ -30,7 +34,7 @@ public class QueryServiceByDateTest extends QueryService {
 
 	@Test
 	public void testFetchKinoByDate() {
-		mswr = qService.fetchKinoByDate(xmlGCal, gameId);
+		mswr = qService.fetchKinoByDate(xmlGCal);
 		assertNotNull("Fetch by Date", mswr);
 		assertEquals(157, mswr.getGameDraws().size());
 		assertNotNull(mswr.getGameDraws().get(150).getNumArr());
@@ -39,7 +43,7 @@ public class QueryServiceByDateTest extends QueryService {
 
 	@Test
 	public void testFetchLottoByDate() {
-		mswr = qService.fetchLottoByDate(xmlGCal, gameId);
+		mswr = qService.fetchLottoByDate(xmlGCal);
 		assertNotNull("Fetch by Date", mswr);
 		assertEquals(1, mswr.getGameDraws().size());
 		assertNotNull(mswr.getGameDraws().get(0).getNumArr());
@@ -48,7 +52,7 @@ public class QueryServiceByDateTest extends QueryService {
 
 	@Test
 	public void testFetchJokerByDate() {
-		mswr = qService.fetchJokerByDate(xmlGCal,  gameId);
+		mswr = qService.fetchJokerByDate(xmlGCal);
 		assertNotNull("Fetch by Date", mswr);
 		assertEquals(0, mswr.getGameDraws().size());
 		//assertNotNull(mswr.getGameDraws().get(0).getNumArr());
@@ -57,7 +61,7 @@ public class QueryServiceByDateTest extends QueryService {
 
 	@Test
 	public void testFetchProtoByDate() {
-		mswr = qService.fetchProtoByDate(xmlGCal, gameId);
+		mswr = qService.fetchProtoByDate(xmlGCal);
 		assertNotNull("Fetch by Date", mswr);
 		assertEquals(0, mswr.getGameDraws().size());
 		//assertNotNull(mswr.getGameDraws().get(0).getNumArr());
@@ -66,7 +70,7 @@ public class QueryServiceByDateTest extends QueryService {
 
 	@Test
 	public void testFetchSuper3ByDate() {
-		mswr = qService.fetchSuper3ByDate(xmlGCal, gameId);
+		mswr = qService.fetchSuper3ByDate(xmlGCal);
 		assertNotNull("Fetch by Date", mswr);
 		assertEquals(10, mswr.getGameDraws().size());
 		assertNotNull(mswr.getGameDraws().get(4).getNumArr());
@@ -75,7 +79,7 @@ public class QueryServiceByDateTest extends QueryService {
 
 	@Test
 	public void testFetchExtra5ByDate() {
-		mswr = qService.fetchExtra5ByDate(xmlGCal, gameId);
+		mswr = qService.fetchExtra5ByDate(xmlGCal);
 		assertNotNull("Fetch by Date", mswr);
 		assertEquals(2, mswr.getGameDraws().size());
 		assertNotNull(mswr.getGameDraws().get(0).getNumArr());
