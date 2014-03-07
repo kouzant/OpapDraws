@@ -56,7 +56,7 @@ public class Utils {
 	 * @exception DatatypeConfigurationException
 	 */
 	public XMLGregorianCalendar getDate(Scanner scanner) {
-		System.out.println("Type the desired date DD/MM/YYYY");
+		System.out.println("Type the desired date (DD/MM/YYYY): ");
 
 		String sDate = scanner.next();
 		String[] splitDate = sDate.split("[/]");
@@ -156,7 +156,7 @@ public class Utils {
 
 		if (zero.compareTo(messageWrapper.getGameDraws().size()) == 0
 				|| null == messageWrapper.getGameDraws()) {
-			System.out.println("Wrong competition number or no draws that day");
+			System.out.println("Wrong competition number or no draws that day!");
 		} else {
 			Iterator<GameDraw> gDrawIt = messageWrapper.getGameDraws()
 					.iterator();
