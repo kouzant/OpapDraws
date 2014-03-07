@@ -1,23 +1,37 @@
-+----------+
-|OPAP Draws|
-+----------+
+OPAP Draws
+==========
 
-Copyright 2014 (C)
-Antonis Kouzoupis <kouzoupis.ant@gmail.com>
+<p>Copyright 2014 (C)</p>
+
+<p>Antonis Kouzoupis <kouzoupis.ant@gmail.com></p>
 
 About
 -----
-A simple CLI SOAP Java client which fetches draws for various OPAP games.
+<p>A simple CLI SOAP Java client which fetches draws for various <strong>OPAP</strong> games.</p>
 
-Available games: Kinno, Lotto, Joker, Proto, Super 3, Extra 5
-Available fetch methods: Latest draw, Draws at a specific date,
-    Draw for a specific competition number
+Available games:
+<ul>
+<li>Kinno</li>
+<li>Lotto</li>
+<li>Joker</li>
+<li>Proto</li>
+<li>Super 3</li>
+<li>Extra 5</li>
+</ul>
+
+Available fetch methods:
+<ul>
+<li>Latest draw</li>
+<li>Draws at a specific date</li>
+<li>Draw for a specific competition number</li>
+</ul>
 
 Compile
 -------
-Apache Maven build tool is required to build the project.
-One jar to rule them all: mvn package
+<p><em>Apache Maven</em> build tool is required to build the project.</p>
+
+<p>One jar to rule them all: <code>mvn package</code></p>
 
 Run
 ---
-java -jar OpapDraws-XXX.jar
+<p><code>java -jar OpapDraws-XXX.jar</code></p>
