@@ -1,5 +1,10 @@
 package gr.kzps.util;
 
+/**
+ * Some constant values.
+ * @author Antonis Kouzoupis
+ *
+ */
 public class Constants {
 	public static final int NUM_OF_GAMES = 6;
 	public static int NUM_OF_METHODS = 3;
