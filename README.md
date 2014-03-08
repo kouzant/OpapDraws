@@ -26,6 +26,9 @@ Available fetch methods:
 <li>Draw for a specific competition number</li>
 </ul>
 
+<p>Project website (yes I have a lot of spare time):
+<a href="https://alafroiskiotos.github.io/OpapDraws/">alafroiskiotos.github.io/OpapDraws</a></p>
+
 Compile
 -------
 <p><em>Apache Maven</em> build tool is required to build the project.</p>
