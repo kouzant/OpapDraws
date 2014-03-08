@@ -552,7 +552,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p, ul, ol, table, pre, dl {
-  margin: 0 0 20px;
+  margin: 0 0 10px;
 }
 
 h1, h2, h3 {
@@ -675,9 +675,9 @@ th {
 }
 
 td {
-  text-align: left;
+  text-align: center;
   padding: 5px 10px;
-  border-bottom: 1px solid #434343;
+  border-bottom: 0px solid #434343;
 }
 
 hr {
@@ -773,6 +773,10 @@ dt {
 #header nav li.downloads {
   float: right;
   margin-left: 6px;
+}
+#header nav li.javadoc {
+  float: right;
+  margin-left: 21px;
 }
 #header nav li.title {
   float: right;
