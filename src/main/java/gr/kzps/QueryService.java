@@ -32,7 +32,7 @@ import gr.opap.draws.ws.query.GameDraw;
  * The class that fetches game draws from OPAP web service.
  * 
  * @author Antonis Kouzoupis
- *
+ * 
  */
 public class QueryService {
 	/**
@@ -45,17 +45,20 @@ public class QueryService {
 	private DrawQueriesServiceSEI implPort;
 	/**
 	 * Single draw respond.
+	 * 
 	 * @see GameDraw
 	 */
 	private GameDraw draw;
 	/**
 	 * Multiple draws respond.
+	 * 
 	 * @see List
 	 * @see GameDraw
 	 */
 	private List<GameDraw> draws;
 	/**
 	 * Unified message wrapper.
+	 * 
 	 * @see MessageWrapper
 	 */
 	private MessageWrapper messageWrapper;
@@ -70,6 +73,7 @@ public class QueryService {
 
 	/**
 	 * Fetches Kinno latest draw.
+	 * 
 	 * @return Response message
 	 * @see MessageWrapper
 	 * @see MessageWrapper#createMessageWrapper(GameDraw, String)
@@ -84,6 +88,7 @@ public class QueryService {
 
 	/**
 	 * Fetces Lotto latest draw.
+	 * 
 	 * @return Response message
 	 * @see MessageWrapper
 	 * @see MessageWrapper#createMessageWrapper(GameDraw, String)
@@ -98,6 +103,7 @@ public class QueryService {
 
 	/**
 	 * Fetches Joker latest draw.
+	 * 
 	 * @return Response message
 	 * @see MessageWrapper
 	 * @see MessageWrapper#createMessageWrapper(GameDraw, String)
@@ -112,6 +118,7 @@ public class QueryService {
 
 	/**
 	 * Fetches Proto latest draw.
+	 * 
 	 * @return Response message
 	 * @see MessageWrapper
 	 * @see MessageWrapper#createMessageWrapper(GameDraw, String)
@@ -126,6 +133,7 @@ public class QueryService {
 
 	/**
 	 * Fetches Super 3 latest draw.
+	 * 
 	 * @return Response message
 	 * @see MessageWrapper
 	 * @see MessageWrapper#createMessageWrapper(GameDraw, String)
@@ -140,6 +148,7 @@ public class QueryService {
 
 	/**
 	 * Fetches Extra 5 latest draw.
+	 * 
 	 * @return Response message
 	 * @see MessageWrapper
 	 * @see MessageWrapper#createMessageWrapper(GameDraw, String)
@@ -154,6 +163,7 @@ public class QueryService {
 
 	/**
 	 * Fetch Propo Goal latest draw.
+	 * 
 	 * @return Draw result
 	 */
 	@SuppressWarnings("unused")
@@ -165,6 +175,7 @@ public class QueryService {
 
 	/**
 	 * Fetches Power Spin latest draw.
+	 * 
 	 * @return Draw result
 	 */
 	@SuppressWarnings("unused")
@@ -176,6 +187,7 @@ public class QueryService {
 
 	/**
 	 * Fetches Bowling latest draw.
+	 * 
 	 * @return Draw result
 	 */
 	@SuppressWarnings("unused")
@@ -187,6 +199,7 @@ public class QueryService {
 
 	/**
 	 * Fetches Penalties latest draw.
+	 * 
 	 * @return Draw result
 	 */
 	@SuppressWarnings("unused")
@@ -198,13 +211,15 @@ public class QueryService {
 
 	/**
 	 * Fetches Kino draws of the specified date.
-	 * @param date Date of the draw
+	 * 
+	 * @param date
+	 *            Date of the draw
 	 * @return Response message
 	 * @see MessageWrapper
 	 * @see MessageWrapper#createMessageWrapper(List, String)
 	 * @see XMLGregorianCalendar
 	 */
-	public MessageWrapper fetchKinoByDate(XMLGregorianCalendar date) {
+	public MessageWrapper fetchKinoByDate(final XMLGregorianCalendar date) {
 		draws = implPort.fetchKinoDrawsByDate(date);
 		messageWrapper = new MessageWrapper();
 		messageWrapper.createMessageWrapper(draws, Constants.KINNO);
@@ -214,13 +229,15 @@ public class QueryService {
 
 	/**
 	 * Fetches Lotto draws of the specified date.
-	 * @param date Date of the draw
+	 * 
+	 * @param date
+	 *            Date of the draw
 	 * @return Response message
 	 * @see MessageWrapper
 	 * @see MessageWrapper#createMessageWrapper(List, String)
 	 * @see XMLGregorianCalendar
 	 */
-	public MessageWrapper fetchLottoByDate(XMLGregorianCalendar date) {
+	public MessageWrapper fetchLottoByDate(final XMLGregorianCalendar date) {
 		draws = implPort.fetchLottoDrawsByDate(date);
 		messageWrapper = new MessageWrapper();
 		messageWrapper.createMessageWrapper(draws, Constants.LOTTO);
@@ -230,13 +247,15 @@ public class QueryService {
 
 	/**
 	 * Fetches Joker draws of the specified date.
-	 * @param date Date of the draw
+	 * 
+	 * @param date
+	 *            Date of the draw
 	 * @return Response message
 	 * @see MessageWrapper
 	 * @see MessageWrapper#createMessageWrapper(List, String)
 	 * @see XMLGregorianCalendar
 	 */
-	public MessageWrapper fetchJokerByDate(XMLGregorianCalendar date) {
+	public MessageWrapper fetchJokerByDate(final XMLGregorianCalendar date) {
 		draws = implPort.fetchJokerDrawsByDate(date);
 		messageWrapper = new MessageWrapper();
 		messageWrapper.createMessageWrapper(draws, Constants.JOKER);
@@ -246,13 +265,15 @@ public class QueryService {
 
 	/**
 	 * Fetches Proto draws of the specified date.
-	 * @param date Date of the draw
+	 * 
+	 * @param date
+	 *            Date of the draw
 	 * @return Response message
 	 * @see MessageWrapper
 	 * @see MessageWrapper#createMessageWrapper(List, String)
 	 * @see XMLGregorianCalendar
 	 */
-	public MessageWrapper fetchProtoByDate(XMLGregorianCalendar date) {
+	public MessageWrapper fetchProtoByDate(final XMLGregorianCalendar date) {
 		draws = implPort.fetchProtoDrawsByDate(date);
 		messageWrapper = new MessageWrapper();
 		messageWrapper.createMessageWrapper(draws, Constants.PROTO);
@@ -262,13 +283,15 @@ public class QueryService {
 
 	/**
 	 * Fetches Super 3 draws of the specified date.
-	 * @param date Date of the draw
+	 * 
+	 * @param date
+	 *            Date of the draw
 	 * @return Response message
 	 * @see MessageWrapper
 	 * @see MessageWrapper#createMessageWrapper(List, String)
 	 * @see XMLGregorianCalendar
 	 */
-	public MessageWrapper fetchSuper3ByDate(XMLGregorianCalendar date) {
+	public MessageWrapper fetchSuper3ByDate(final XMLGregorianCalendar date) {
 		draws = implPort.fetchSuper3DrawsByDate(date);
 		messageWrapper = new MessageWrapper();
 		messageWrapper.createMessageWrapper(draws, Constants.SUPER3);
@@ -278,13 +301,15 @@ public class QueryService {
 
 	/**
 	 * Fetches Extra 5 draws of the specified date.
-	 * @param date Date of the draw
+	 * 
+	 * @param date
+	 *            Date of the draw
 	 * @return Response message
 	 * @see MessageWrapper
 	 * @see MessageWrapper#createMessageWrapper(List, String)
 	 * @see XMLGregorianCalendar
 	 */
-	public MessageWrapper fetchExtra5ByDate(XMLGregorianCalendar date) {
+	public MessageWrapper fetchExtra5ByDate(final XMLGregorianCalendar date) {
 		draws = implPort.fetchExtra5DrawsByDate(date);
 		messageWrapper = new MessageWrapper();
 		messageWrapper.createMessageWrapper(draws, Constants.EXTRA5);
@@ -294,12 +319,14 @@ public class QueryService {
 
 	/**
 	 * Fetches Kino draw specified by a draw number.
-	 * @param drawNumber Draw number
+	 * 
+	 * @param drawNumber
+	 *            Draw number
 	 * @return Response message
 	 * @see MessageWrapper
 	 * @see MessageWrapper#createMessageWrapper(GameDraw, String)
 	 */
-	public MessageWrapper fetchKinoByNumber(Long drawNumber) {
+	public MessageWrapper fetchKinoByNumber(final Long drawNumber) {
 		draw = implPort.fetchKinoDrawByNumber(drawNumber);
 		messageWrapper = new MessageWrapper();
 		messageWrapper.createMessageWrapper(draw, Constants.KINNO);
@@ -309,12 +336,14 @@ public class QueryService {
 
 	/**
 	 * Fetches Lotto draw specified by a draw number.
-	 * @param drawNumber Draw number
+	 * 
+	 * @param drawNumber
+	 *            Draw number
 	 * @return Response message
 	 * @see MessageWrapper
 	 * @see MessageWrapper#createMessageWrapper(GameDraw, String)
 	 */
-	public MessageWrapper fetchLottoByNumber(Long drawNumber) {
+	public MessageWrapper fetchLottoByNumber(final Long drawNumber) {
 		draw = implPort.fetchLottoDrawByNumber(drawNumber);
 		messageWrapper = new MessageWrapper();
 		messageWrapper.createMessageWrapper(draw, Constants.LOTTO);
@@ -324,12 +353,14 @@ public class QueryService {
 
 	/**
 	 * Fetches Joker draw specified by a draw number.
-	 * @param drawNumber Draw number
+	 * 
+	 * @param drawNumber
+	 *            Draw number
 	 * @return Response message
 	 * @see MessageWrapper
 	 * @see MessageWrapper#createMessageWrapper(GameDraw, String)
 	 */
-	public MessageWrapper fetchJokerByNumber(Long drawNumber) {
+	public MessageWrapper fetchJokerByNumber(final Long drawNumber) {
 		draw = implPort.fetchJokerDrawByNumber(drawNumber);
 		messageWrapper = new MessageWrapper();
 		messageWrapper.createMessageWrapper(draw, Constants.JOKER);
@@ -339,12 +370,14 @@ public class QueryService {
 
 	/**
 	 * Fetches Proto draw specified by a draw number.
-	 * @param drawNumber Draw number
+	 * 
+	 * @param drawNumber
+	 *            Draw number
 	 * @return Response message
 	 * @see MessageWrapper
 	 * @see MessageWrapper#createMessageWrapper(GameDraw, String)
 	 */
-	public MessageWrapper fetchProtoByNumber(Long drawNumber) {
+	public MessageWrapper fetchProtoByNumber(final Long drawNumber) {
 		draw = implPort.fetchProtoDrawByNumber(drawNumber);
 		messageWrapper = new MessageWrapper();
 		messageWrapper.createMessageWrapper(draw, Constants.PROTO);
@@ -354,12 +387,14 @@ public class QueryService {
 
 	/**
 	 * Fetches Super 3 draw specified by a draw number.
-	 * @param drawNumber Draw number
+	 * 
+	 * @param drawNumber
+	 *            Draw number
 	 * @return Response message
 	 * @see MessageWrapper
 	 * @see MessageWrapper#createMessageWrapper(GameDraw, String)
 	 */
-	public MessageWrapper fetchSuper3ByNumber(Long drawNumber) {
+	public MessageWrapper fetchSuper3ByNumber(final Long drawNumber) {
 		draw = implPort.fetchSuper3DrawByNumber(drawNumber);
 		messageWrapper = new MessageWrapper();
 		messageWrapper.createMessageWrapper(draw, Constants.SUPER3);
@@ -369,12 +404,14 @@ public class QueryService {
 
 	/**
 	 * Fetches Extra 5 draw specified by a draw number.
-	 * @param drawNumber Draw number
+	 * 
+	 * @param drawNumber
+	 *            Draw number
 	 * @return Response message
 	 * @see MessageWrapper
 	 * @see MessageWrapper#createMessageWrapper(GameDraw, String)
 	 */
-	public MessageWrapper fetchExtra5ByNumber(Long drawNumber) {
+	public MessageWrapper fetchExtra5ByNumber(final Long drawNumber) {
 		draw = implPort.fetchExtra5DrawByNumber(drawNumber);
 		messageWrapper = new MessageWrapper();
 		messageWrapper.createMessageWrapper(draw, Constants.EXTRA5);

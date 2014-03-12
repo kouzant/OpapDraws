@@ -19,7 +19,9 @@
  */
 package gr.kzps;
 
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -32,7 +34,7 @@ import org.junit.Test;
 public class QueryServiceDrawNumTest extends QueryService {
 
 	private static QueryService qService;
-	private final long DRAWNUM = 1474L;
+	private static final long DRAWNUM = 1474L;
 	private static MessageWrapper mswr;
 	
 	@BeforeClass

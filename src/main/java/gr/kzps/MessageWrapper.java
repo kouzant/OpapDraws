@@ -19,7 +19,6 @@
  */
 package gr.kzps;
 
-import gr.kzps.util.Constants;
 import gr.opap.draws.ws.query.GameDraw;
 
 import java.util.ArrayList;
@@ -33,7 +32,8 @@ import java.util.List;
  */
 public class MessageWrapper {
 	/**
-	 * Name of the game
+	 * Name of the game.
+	 * 
 	 * @see Constants
 	 */
 	private String gameId;
@@ -45,6 +45,7 @@ public class MessageWrapper {
 
 	/**
 	 * Get the game name.
+	 * 
 	 * @return The game name
 	 * @see Constants
 	 */
@@ -54,15 +55,18 @@ public class MessageWrapper {
 
 	/**
 	 * Set the game name.
-	 * @param gameId The game name
+	 * 
+	 * @param gameId
+	 *            The game name
 	 * @see Constants
 	 */
-	public void setGameId(String gameId) {
+	public void setGameId(final String gameId) {
 		this.gameId = gameId;
 	}
 
 	/**
-	 * Get the list of GameDraw
+	 * Get the list of GameDraw.
+	 * 
 	 * @return The list of GameDraw
 	 * @see GameDraw
 	 */
@@ -71,43 +75,53 @@ public class MessageWrapper {
 	}
 
 	/**
-	 * Set the list of GameDraw
-	 * @param gameDraws The list of GameDraw
+	 * Set the list of GameDraw.
+	 * 
+	 * @param gameDraws
+	 *            The list of GameDraw
 	 * @see GameDraw
 	 */
-	public void setGameDraws(List<GameDraw> gameDraws) {
+	public void setGameDraws(final List<GameDraw> gameDraws) {
 		this.gameDraws = gameDraws;
 	}
 
 	/**
 	 * Creates a unified message from a single GameDraw object.
-	 * @param gameDraw Single draw result
-	 * @param gameId Game name
+	 * 
+	 * @param gameDraw
+	 *            Single draw result
+	 * @param gameId
+	 *            Game name
 	 * @return The unified message
 	 * @see GameDraw
 	 * @see Constants
 	 * @see ArrayList
 	 */
-	public MessageWrapper createMessageWrapper(GameDraw gameDraw, String gameId) {
+	public MessageWrapper createMessageWrapper(final GameDraw gameDraw,
+			final String gameId) {
 		MessageWrapper messageWrapper = new MessageWrapper();
 		gameDraws = new ArrayList<GameDraw>();
 		this.gameId = gameId;
-		if (gameDraw != null)
+		if (gameDraw != null) {
 			gameDraws.add(gameDraw);
+		}
 
 		return messageWrapper;
 	}
 
 	/**
-	 * Creates a unified message from a list of GameDraw objects
-	 * @param gameDraws List of more than once draw results
-	 * @param gameId Game name
+	 * Creates a unified message from a list of GameDraw objects.
+	 * 
+	 * @param gameDraws
+	 *            List of more than once draw results
+	 * @param gameId
+	 *            Game name
 	 * @return The unified message
 	 * @see GameDraw
 	 * @see Constants
 	 */
-	public MessageWrapper createMessageWrapper(List<GameDraw> gameDraws,
-			String gameId) {
+	public MessageWrapper createMessageWrapper(final List<GameDraw> gameDraws,
+			final String gameId) {
 		MessageWrapper messageWrapper = new MessageWrapper();
 		this.gameId = gameId;
 		this.gameDraws = gameDraws;

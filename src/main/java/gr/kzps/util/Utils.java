@@ -39,7 +39,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  */
 public class Utils {
 	/**
-	 * StringBuilder object
+	 * StringBuilder object.
 	 * 
 	 * @see StringBuilder
 	 */
@@ -49,13 +49,14 @@ public class Utils {
 	 * In case the user selects the get draw by date method, this method gets
 	 * the date.
 	 * 
-	 * @param scanner The scanner object to get the user input
+	 * @param scanner
+	 *            The scanner object to get the user input
 	 * @return Date of draw
 	 * @see java.util.GregorianCalendar
 	 * @see XMLGregorianCalendar
 	 * @exception DatatypeConfigurationException
 	 */
-	public XMLGregorianCalendar getDate(Scanner scanner) {
+	public XMLGregorianCalendar getDate(final Scanner scanner) {
 		System.out.println("Type the desired date (DD/MM/YYYY): ");
 
 		String sDate = scanner.next();
@@ -81,10 +82,11 @@ public class Utils {
 	 * In case the user selects the get draw by draw number, this method gets
 	 * the draw number.
 	 * 
-	 * @param scanner The scanner object to get the user input
+	 * @param scanner
+	 *            The scanner object to get the user input
 	 * @return The competition number
 	 */
-	public Long getCompNum(Scanner scanner) {
+	public Long getCompNum(final Scanner scanner) {
 		System.out.println("Type the desired competition number");
 
 		Long compNum = scanner.nextLong();
@@ -94,26 +96,32 @@ public class Utils {
 
 	/**
 	 * Print dashes before and after a string in order to form a box.
-	 * @param length Length of the string
+	 * 
+	 * @param length
+	 *            Length of the string
 	 * @return The proper amount of dashes
 	 * @see StringBuilder
 	 */
-	private String printDashes(int length) {
+	private String printDashes(final int length) {
 		sb = new StringBuilder();
-		for (int i = 0; i < length; i++)
+		for (int i = 0; i < length; i++) {
 			sb.append("-");
+		}
 
 		return sb.toString();
 	}
 
 	/**
 	 * Lotto and Joker have a special number which is printed in a special way.
-	 * @param numArr Array of numbers
-	 * @param game The game in question
+	 * 
+	 * @param numArr
+	 *            Array of numbers
+	 * @param game
+	 *            The game in question
 	 * @return The string of formated numbers
 	 * @see StringBuilder
 	 */
-	private String formatNumber(List<Long> numArr, String game) {
+	private String formatNumber(final List<Long> numArr, final String game) {
 		Iterator<Long> numArrIt = numArr.iterator();
 		sb = new StringBuilder();
 		sb.append("|");
@@ -136,27 +144,32 @@ public class Utils {
 
 	/**
 	 * Print the result of a draw.
-	 * @param messageWrapper Unified message response
+	 * 
+	 * @param messageWrapper
+	 *            Unified message response
 	 * @see MessageWrapper
 	 * @see Utils#printDashes(int)
 	 * @see Utils#formatNumber(List, String)
 	 * @see Iterator
 	 * @see GameDraw
 	 */
-	public void Printer(MessageWrapper messageWrapper) {
+	public void printer(final MessageWrapper messageWrapper) {
 		if (messageWrapper == null) {
 			System.err.println("Something wrong happened!");
 			System.exit(-2);
 		}
 		Integer zero = new Integer(0);
-		System.out.println(printDashes(messageWrapper.getGameId().length() + 2));
+		System.out
+				.println(printDashes(messageWrapper.getGameId().length() + 2));
 		System.out.println("|" + messageWrapper.getGameId() + "|");
-		System.out.println(printDashes(messageWrapper.getGameId().length() + 2));
+		System.out
+				.println(printDashes(messageWrapper.getGameId().length() + 2));
 		System.out.println();
 
 		if (zero.compareTo(messageWrapper.getGameDraws().size()) == 0
 				|| null == messageWrapper.getGameDraws()) {
-			System.out.println("Wrong competition number or no draws that day!");
+			System.out
+					.println("Wrong competition number or no draws that day!");
 		} else {
 			Iterator<GameDraw> gDrawIt = messageWrapper.getGameDraws()
 					.iterator();

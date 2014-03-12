@@ -31,7 +31,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- * Test case for fetch draw for a specific date
+ * Test case for fetch draw for a specific date.
  * @author Antonis Kouzoupis
  *
  */

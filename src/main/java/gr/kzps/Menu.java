@@ -31,8 +31,10 @@ import java.util.Scanner;
  * Entry point of the program. Class that implements the main menu.
  * @author Antonis Kouzoupis
  */
-public class Menu {
-
+public final class Menu {
+	private Menu() {
+		
+	}
 	/**
 	 * Scanner should be closed only once, otherwise System.in is closed too.
 	 * @see java.util.Scanner
@@ -54,7 +56,7 @@ public class Menu {
 	}
 
 	/**
-	 * Prints the available game options
+	 * Prints the available game options.
 	 * @return The available game options
 	 * @see StringBuilder
 	 * @see List
@@ -87,7 +89,7 @@ public class Menu {
 	}
 
 	/**
-	 * Prints the available draw methods
+	 * Prints the available draw methods.
 	 * @return The available draw methods
 	 * @see StringBuilder
 	 */
@@ -103,14 +105,14 @@ public class Menu {
 	}
 
 	/**
-	 * Reads user's input for the main menu and validates it
+	 * Reads user's input for the main menu and validates it.
 	 * @param inputType 0 is for game choice and 1 is for method choice
 	 * @return User's input
 	 * @see Scanner
 	 * @exception InputMismatchException
 	 * @see Constants
 	 */
-	private int getInputNumber(int inputType) {
+	private int getInputNumber(final int inputType) {
 		int inputNumber = -1;
 		try {
 			scanner = new Scanner(System.in);
@@ -138,8 +140,7 @@ public class Menu {
 	}
 
 	/**
-	 * Prints main menu, user choose between games and different draw methods
-	 * @param args
+	 * Prints main menu, user choose between games and different draw methods.
 	 * @see Menu#welcomeMessage()
 	 * @see Menu#mainMenu()
 	 * @see Menu#getInputNumber(int)
@@ -149,13 +150,12 @@ public class Menu {
 	 */
 	public static void main(String[] args) {
 		Menu menu = new Menu();
-		boolean RUNNING = true;
 		int gameChoice;
 		int methodChoice;
 
 		System.out.print(menu.welcomeMessage());
 
-		while (RUNNING) {
+		while (true) {
 			System.out.print(menu.mainMenu());
 			gameChoice = menu.getInputNumber(0);
 

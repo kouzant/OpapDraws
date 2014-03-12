@@ -27,18 +27,18 @@ import gr.kzps.util.Utils;
 
 /**
  * Class which select the appropriate web service methods according to user
- * choices
+ * choices.
  * 
  * @author Antonis Kouzoupis
  * 
  */
 public class Selector {
 	/**
-	 * Game identification number
+	 * Game identification number.
 	 */
 	private int game;
 	/**
-	 * Method identification number
+	 * Method identification number.
 	 */
 	private int method;
 	/**
@@ -53,7 +53,7 @@ public class Selector {
 	 * @param method Method identification number
 	 * @param scanner Scanner object
 	 */
-	public Selector(int game, int method, Scanner scanner) {
+	public Selector(final int game, final int method, final Scanner scanner) {
 		super();
 		this.game = game;
 		this.method = method;
@@ -61,13 +61,13 @@ public class Selector {
 	}
 
 	/**
-	 * select the appropriate web service methods according to user choices
+	 * select the appropriate web service methods according to user choices.
 	 * @see Utils
 	 * @see QueryService
 	 * @see MessageWrapper
 	 * @see Utils#getDate(Scanner)
 	 * @see Utils#getCompNum(Scanner)
-	 * @see Utils#Printer(MessageWrapper)
+	 * @see Utils#printer(MessageWrapper)
 	 * @see XMLGregorianCalendar
 	 */
 	public void select() {
@@ -148,8 +148,11 @@ public class Selector {
 				messageWrapper = qService.fetchExtra5ByNumber(compNum);
 			}
 			break;
+		default:
+			System.err.println("Something wrong happened!");
+			break;
 		}
 
-		util.Printer(messageWrapper);
+		util.printer(messageWrapper);
 	}
 }
